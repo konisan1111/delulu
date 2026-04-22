@@ -13,7 +13,9 @@
   </p>
 </div>
 
-# Delulu Repository
+# MÉG DOLGOZOK RAJTAAA!!!
+
+## Delulu Repository
 Szia! Használd egészséggel! :3
 
 ## Mappa beosztás

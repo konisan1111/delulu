@@ -41,4 +41,4 @@ const DataFetcher = () => {
 };
 
 export default DataFetcher;
-```
+    ```
