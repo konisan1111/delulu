@@ -16,7 +16,9 @@
 
 ## JSON useState kód blokk:
 
-```import React, { useState, useEffect } from 'react';
+```
+
+import React, { useState, useEffect } from 'react';
 
 const DataFetcher = () => {
   const [data, setData] = useState([]);
@@ -38,4 +40,5 @@ const DataFetcher = () => {
   );
 };
 
-export default DataFetcher;```
+export default DataFetcher;
+```
