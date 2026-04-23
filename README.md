@@ -10,16 +10,31 @@
     <img src="https://img.shields.io/badge/WPF-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
     <img src="https://img.shields.io/badge/C%23_Console-239120?style=for-the-badge&logo=c-sharp&logoColor=white" />
     <img src="https://img.shields.io/badge/asp.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+    <br>
+    <img src="https://komarev.com/ghpvc/?username=konisan1111&repo=delulu&style=for-the-badge&color=blue" />
+    <img src="https://img.shields.io/github/stars/konisan1111/delulu?style=for-the-badge&color=gold" />
   </p>
 </div>
 
-# MÉG DOLGOZOK RAJTAAA!!!
+# ---> MÉG DOLGOZOK RAJTAAA!!! <---
 
-## Delulu Repository
-Gyerekek, használjátok egészséggel! :3
+# Delulu Repository
+Gyerekek, használjátok egészséggel! :3 Itt mindent megtaláltok; forrásokat, és tippeket is! Ha bármi van, írjatok rám Discordon vagy Instán.
+
+## ☝️ Hogyan használd a repo-t?
+Hát, az első legfontosabb, hogy ***olvass el MINDENT!!!***
+Itt a root mappában már megtaláltad a README-t. 
+
+Mindegyik másik mappában is van, amelyekben részletesebb leírást kapsz az adott feladatról, illetve tippeket is írtam oda. Érdemes azokat használni. A kód blokkokat pedig külön-külön fájlokban tároltam el. A nevükből egyértelmű hogy mi mit csinál, de azokat is leírtam. 
 
 ## 📁 Mappa beosztás
-Ezt azért érdemes tudnotok
+Leírtam, hogy melyik mappában mit találtok meg!
+
+`.\extensions` =>>> Extension-ök amiket használhattok.
+
+`.\practice` =>>> Itt gyakorló feladatokat találsz!
+
+`.\learn` =>>> Videók amelyekből tanulhatsz! (nagyon ajánlott!!!)
 
 `.\react` =>>> React Frontend kód részletek
 
@@ -38,16 +53,15 @@ Ez itt egy összefoglaló a Technikusi vizsgának a gyakorlati részéhez. Nyugo
 Igen, nagyon crazy, de azt csináltok amit akartok kb. *Egyedül AI-t nem lehet használni.*
 
 ## 📌 Szükséges Technológiai Tudás:
-Az alábbiakat tudnod kell a vizsgára legalább kezdő szinten!
+Az alábbiakat tudnod kell a vizsgára legalább haladó szinten!
 
-- HTML  
-- CSS (Flexbox)
-- JavaScript (ES6 szabvány) 
-- TypeScript (ES6 szabvány)
-- React with Vite
-- WPF
-- C# Console
-- asp.NET 
+| Kategória | Technológia | Elvárt szint |
+| :--- | :--- | :--- |
+| **Web Alapok** | HTML, CSS (Flexbox) | Legalább haladó |
+| **Programozási nyelvek** | JavaScript, TypeScript (ES6), C# | Legalább haladó |
+| **Web Frontend** | React with Vite | Legalább haladó |
+| **Desktop Fejlesztés** | WPF | Legalább haladó |
+| **Console Application** | C# Console | Legalább haladó |
 
 ## 🔵 Frontend React Feladat:
 Reactban egy Frontend feladatot kell megoldanod, egy megkezdett projektben. Az alábbiakat kell elvégezned:
@@ -95,3 +109,4 @@ Az órákon elvégzet feladatokhoz hasonló lesz a gyakorlati feladat is!
 
 # ✏ Lezárás 
 Ismételten, frissülni fognak az információk idővel, és igyekszem minél hamarabb ezeket megtenni!
+  
