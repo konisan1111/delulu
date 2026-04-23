@@ -95,5 +95,3 @@ Az órákon elvégzet feladatokhoz hasonló lesz a gyakorlati feladat is!
 
 # ✏ Lezárás 
 Ismételten, frissülni fognak az információk idővel, és igyekszem minél hamarabb ezeket megtenni!
-
-*Utoljára módosítva: 2026.04.22 13:09*
