@@ -1,3 +1,5 @@
+# Még nincsen készen
+
 ## 🟪 asp.NET API Feladat:
 
 **Ezt az API-t kell használni a React feladathoz!**

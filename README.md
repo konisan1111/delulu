@@ -52,6 +52,8 @@ Ez itt egy összefoglaló a Technikusi vizsgának a gyakorlati részéhez. Nyugo
 ***ENGEDÉLYEZETT!!! KORLÁTOZÁS SINCSEN!!!***
 Igen, nagyon crazy, de azt csináltok amit akartok kb. *Egyedül AI-t nem lehet használni.*
 
+## Az egymással való kommunikáció is tiltott!!!**
+
 ## 📌 Szükséges Technológiai Tudás:
 Az alábbiakat tudnod kell a vizsgára legalább haladó szinten!
 

@@ -1,4 +1,5 @@
 
+# Még nincsen készen
 
 ## 🟪 WPF Application Feladat:
 
