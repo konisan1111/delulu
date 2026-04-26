@@ -63,35 +63,6 @@ Az alábbiakat tudnod kell a vizsgára legalább haladó szinten!
 | **Desktop Fejlesztés** | WPF | Legalább haladó |
 | **Console Application** | C# Console | Legalább haladó |
 
-
-
-## 🟣 C# Console Application Feladat:
-A C# Console appban egy **CSV fájlt kell beolvasni** (Comma-Separated Value), majd az abban szereplő adatokat kezelni. 
-
-Mivel lesz internet a gépeken, lehet packageket haszálni. Aa Githubos példákban a CsvHelper-t használok, illetve egy vanilla megoldást.
-### Nem ajánlott a Top Level Statement! ⚠
-(sőt inkább ne)
-
-## 🟪 WPF Application Feladat:
-
-Ebben a feladatban egy Sqlite backnednek kell az adatait beolvasnod, majd azokat **DataGrid**-ben kell megjeleníteni.
-
-Ha a DataGrid-ben egy elemere rányomunk akkor egy **ListBox**-nak kell megjelennie részletesebb információkkal.
-
-Alapjaiban, egy nagyon egyszerű felhasználói felületet kell készítened amely adatokat jelenít meg.
-
-## 🟪 asp.NET API Feladat:
-
-**Ezt az API-t kell használni a React feladathoz!**
-
-A nuGet package manager-ben használnod kell a:
-- Sqlite-ot és az
-- Entity Framework-öt.
-
-Jelenleg amit biztosra tudunk, hogy kell egy GET POST-ot írni a feladatban. Egy endpointot kell majd létrehozni.
-
-Az órákon elvégzet feladatokhoz hasonló lesz a gyakorlati feladat is!
-
 # ✏ Lezárás 
 Ismételten, frissülni fognak az információk idővel, és igyekszem minél hamarabb ezeket megtenni!
   
