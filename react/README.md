@@ -12,10 +12,25 @@
     <img src="https://img.shields.io/badge/asp.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
   </p>
 </div>
- 
 
+# Frontend React Feladat:
+Reactban egy Frontend feladatot kell megoldanod, egy megkezdett projektben. Az alábbiakat kell elvégezned:
 
-## JSON useState kód blokk:
+- 🔴 (4 pont) Importálj az asp.NET feladatban létrehozott backend endpointon egy json objektumot Fetchel, vagy Axios-al.
+- 🟡 (2 pont) Custom hook, és state kezelés.
+- 🔵 (9 pont) Hozz létre egy komponenst egyedül, és adj csillagos értékelést.
+- 🟢 (? pont) Flexbox CSS elrendezés, és grid.
+
+**Nagyon fontos, a backendnek nem muszáj jól működnie!**
+
+Összesen **3 biztosítás** van a feladatban! Amennyiben nem megy az asp.NET backend, nincsen baj, mert van egy JSON fájl ugyan azokkal az adatokkal amit nem az endpointról kell megkapnod, csak simán behívod a React projektedben! 
+
+Ha valamiért ez sem menne, vagy egy egész dummy JSON block eleve a kódban. 
+
+Ami még szintén fontos, az az, hogy: az asp.NET feladatában nem neked kell megcsinálnod azt az endpointot amin a JSON érkezik a React-ba, tehát teljesen hülye biztos. Az már eleve benne lesz.
+
+### 🔴 (FETCH API) JSON importálás és olvasás.
+Ez az első lehetőséged amivel importálhatod a JSON-t. Kicsit klasszikusabb, és bonyibb de nem sokkal.
 
 ```
 
@@ -25,7 +40,7 @@ const DataFetcher = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('IDE JÖN AZ ENDPOINT!!!')
       .then((response) => response.json())
       .then((json) => setData(json));
   }, []);
@@ -42,4 +57,37 @@ const DataFetcher = () => {
 };
 
 export default DataFetcher;
-    ```
+```
+
+### 🔴 (AXIOS) JSON importálás és olvasás.
+Az AXIOS egy modernebb megoldás a JSON importálásra, de kb majdnem ugyan az mind a kettő.
+```
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const DataFetcher = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('IDE JÖN AZ ENDPOINT!!!')
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error('Hiba történt:', error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <ul>
+        {data.slice(0, 5).map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default DataFetcher;
+```

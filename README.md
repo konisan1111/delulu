@@ -63,22 +63,7 @@ Az alábbiakat tudnod kell a vizsgára legalább haladó szinten!
 | **Desktop Fejlesztés** | WPF | Legalább haladó |
 | **Console Application** | C# Console | Legalább haladó |
 
-## 🔵 Frontend React Feladat:
-Reactban egy Frontend feladatot kell megoldanod, egy megkezdett projektben. Az alábbiakat kell elvégezned:
 
-- Importálj az asp.NET feladatban létrehozott backend endpointon egy json objektumot FETCH API-val.
-- Hozz létre egy komponenst egyedül.
-- Módosíts egy komponenst (Math vélhetően).
-- Flexbox CSS elrendezés.
-- Csillagos értékelés.
-
-**Nagyon fontos, a backendnek nem muszáj jól működnie!**
-
-Összesen **3 biztosítás** van a feladatban! Amennyiben nem megy az asp.NET backend, nincsen baj, mert van egy JSON fájl ugyan azokkal az adatokkal amit nem az endpointról kell megkapnod, csak simán behívod a React projektedben! 
-
-Ha valamiért ez sem menne, vagy egy egész dummy JSON block eleve a kódban. 
-
-Ami még szintén fontos, az az, hogy: az asp.NET feladatában nem neked kell megcsinálnod azt az endpointot amin a JSON érkezik a React-ba, tehát teljesen hülye biztos. Az már eleve benne lesz.
 
 ## 🟣 C# Console Application Feladat:
 A C# Console appban egy **CSV fájlt kell beolvasni** (Comma-Separated Value), majd az abban szereplő adatokat kezelni. 
