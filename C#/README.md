@@ -14,6 +14,9 @@
 </div>
 
 # 📽️ Videók tanulásra:
+
+Ofő megoldása a gyakorló feladatnak: https://www.youtube.com/watch?v=UGfHMuNLkAU
+
 C# Crash Course: https://www.youtube.com/watch?v=gfkTfcpWqAY
 
 CSV beolvasás és feldolgozás: https://www.youtube.com/watch?v=W2Oj5OdWnBo
