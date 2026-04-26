@@ -59,7 +59,7 @@ Igen, nagyon crazy, de azt csináltok amit akartok kb. *Egyedül AI-t nem lehet 
 Uhhh igen, megkérdeztem, és van rá esély, de ott fog kiderülni. Én majd megkérdezem a vizsgáztatókat hogy lehet-e mert azért 4 órán át full uhhh *csöndben* nem annyira fun kódolni.
 Szóval ott majd kiderül. 
 
-## 👉 Hozzatok vezetékes fejest meg fülest, az a biztos. 👈
+#### 👉 Hozzatok vezetékes fejest meg fülest, az a biztos. 👈
 
 ## 📌 Szükséges Technológiai Tudás:
 Az alábbiakat tudnod kell a vizsgára legalább haladó szinten!
