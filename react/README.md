@@ -13,7 +13,51 @@
   </p>
 </div>
 
-# Frontend React Feladat:
+# 📽️ Videók tanulásra:
+Kérlek, legalább nézzetek bele néhányba, mert nagyon sok infót elmondanak bennük, és hasznosak lesznek a vizsgán!
+(a CSS Flexboxot, TypeScriptet, ES6-ot mindenképpen nézzétek meg!!!)
+
+CSS Flexbox Course: https://www.youtube.com/watch?v=wsTv9y931o8
+
+JavaScript Crash Course: https://www.youtube.com/watch?v=W6NZfCO5SIk
+
+ES6-os szabvány (ez igen csak kell typescripthez): https://www.youtube.com/watch?v=WZQc7RUAg18
+
+React with Typescript: https://www.youtube.com/watch?v=TPACABQTHvM
+
+TypeScript Crash Course: https://www.youtube.com/watch?v=ZvZ7gvcmPmI
+
+Axios: https://www.youtube.com/watch?v=12l6lkW6JhE
+
+Fetch API: https://www.youtube.com/watch?v=zR5FoKMAJp4
+
+# 📚 Gyakorló feladatok:
+
+Desserts - JSON importálás, és komponensek mapelésére jó feladat!
+
+https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d
+
+Pokedex Template - Gyakorlati vizsga feladat. EZT NAGYON NÉZZÉTEK ÁT! Konkrétan ugyan ez!!!
+
+https://github.com/Mechwart-NT/pokedex-template
+
+# 🧪 Táblázat még év elejéről:
+![Táblázat Képe](https://i.ibb.co/Wv0f0V40/image.png)
+
+# 🤔 Hogyan kezdj el egy projektet?
+Remélem számodra már egyértelmű az hogy Node.js-t használtunk végig.
+
+Ha szeretnél egy projektet létrehozni, akkor a következőt írd be: `npm create vite@latest`
+> Szükséges a vite package, viszont ha ez nem volt telepítve akkor alapból megkérdezi, hogy telepítse-e ami nekünk nyilván kell.
+
+Az `npm` a Node Package Manager.
+
+Válaszd ki, hogy `React`-ot használsz, illetve `TypeScript`-et kódoláshoz.
+
+Miután készen vagy, futtasd élőben a projektet az `npm run dev` parancs használatával!
+
+
+# 💻 Frontend React Feladat:
 Reactban egy Frontend feladatot kell megoldanod, egy megkezdett projektben. Az alábbiakat kell elvégezned:
 
 - 🔴 (4 pont) Importálj az asp.NET feladatban létrehozott backend endpointon egy json objektumot Fetchel, vagy Axios-al.
@@ -30,8 +74,7 @@ Ha valamiért ez sem menne, vagy egy egész dummy JSON block eleve a kódban.
 Ami még szintén fontos, az az, hogy: az asp.NET feladatában nem neked kell megcsinálnod azt az endpointot amin a JSON érkezik a React-ba, tehát teljesen hülye biztos. Az már eleve benne lesz.
 
 ### 🔴 (FETCH API) JSON importálás és olvasás.
-Ez az első lehetőséged amivel importálhatod a JSON-t. Kicsit klasszikusabb, és bonyibb de nem sokkal.
-
+Használhatsz FETCH API-t, ami egy régebbi megoldás, és nem manuális. Nem támogatott annyira széles körben.
 ```
 
 import React, { useState, useEffect } from 'react';
@@ -60,7 +103,9 @@ export default DataFetcher;
 ```
 
 ### 🔴 (AXIOS) JSON importálás és olvasás.
-Az AXIOS egy modernebb megoldás a JSON importálásra, de kb majdnem ugyan az mind a kettő.
+Ha automatizált beolvasást akarsz akkor telepítsd az AXIOS-t. A FETCH-el ellentétben, ezt egy `npm package`-ként kell telepítened. Nagyobb a támogatottsága.
+
+Így telepítsd fel a projektbe: `npm install axios`
 ```
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
