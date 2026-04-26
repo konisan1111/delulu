@@ -53,7 +53,7 @@ Ez itt egy összefoglaló a Technikusi vizsgának a gyakorlati részéhez. Nyugo
 ***ENGEDÉLYEZETT!!! KORLÁTOZÁS SINCSEN!!!***
 Igen, nagyon crazy, de azt csináltok amit akartok kb. *Egyedül AI-t nem lehet használni.*
 
-## Az egymással való kommunikáció is tiltott!!!**
+#### Az egymással való kommunikáció is tiltott!!!**
 
 ## 🎧🎶 Zene hallgatás:
 Uhhh igen, megkérdeztem, és van rá esély, de ott fog kiderülni. Én majd megkérdezem a vizsgáztatókat hogy lehet-e mert azért 4 órán át full uhhh *csöndben* nem annyira fun kódolni.
