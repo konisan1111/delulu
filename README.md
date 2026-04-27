@@ -19,7 +19,7 @@
 # ---> MÉG DOLGOZOK RAJTAAA!!! <---
 
 # Delulu Repository
-uhhh ne kérdezd a nevét xd
+Uhhh ne kérdezd a nevét xd
 Gyerekek, használjátok egészséggel! :3 Itt mindent megtaláltok; forrásokat, és tippeket is! Ha bármi van, írjatok rám Discordon vagy Instán.
 
 ## ☝️ Hogyan használd a repo-t?
