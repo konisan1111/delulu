@@ -10,5 +10,28 @@
     <img src="https://img.shields.io/badge/WPF-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
     <img src="https://img.shields.io/badge/C%23_Console-239120?style=for-the-badge&logo=c-sharp&logoColor=white" />
     <img src="https://img.shields.io/badge/asp.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+    <br>
+    <img src="https://komarev.com/ghpvc/?username=konisan1111&repo=delulu&style=for-the-badge&color=blue" />
+    <img src="https://img.shields.io/github/stars/konisan1111/delulu?style=for-the-badge&color=gold" />
   </p>
 </div>
+
+CSS Flexbox Course: https://www.youtube.com/watch?v=wsTv9y931o8
+
+JavaScript Crash Course: https://www.youtube.com/watch?v=W6NZfCO5SIk
+
+ES6-os szabvány (ez igen csak kell typescripthez): https://www.youtube.com/watch?v=WZQc7RUAg18
+
+React with Typescript: https://www.youtube.com/watch?v=TPACABQTHvM
+
+TypeScript Crash Course: https://www.youtube.com/watch?v=ZvZ7gvcmPmI
+
+Axios: https://www.youtube.com/watch?v=12l6lkW6JhE
+
+Fetch API: https://www.youtube.com/watch?v=zR5FoKMAJp4
+
+Ofő megoldása a gyakorló feladatnak: https://www.youtube.com/watch?v=UGfHMuNLkAU
+
+C# Crash Course: https://www.youtube.com/watch?v=gfkTfcpWqAY
+
+CSV beolvasás és feldolgozás: https://www.youtube.com/watch?v=W2Oj5OdWnBo
