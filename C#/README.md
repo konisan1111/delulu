@@ -24,6 +24,8 @@ C# Crash Course: https://www.youtube.com/watch?v=gfkTfcpWqAY
 
 CSV beolvasás és feldolgozás: https://www.youtube.com/watch?v=W2Oj5OdWnBo
 
+Lambda C#-ban: https://www.youtube.com/watch?v=GSr7BpoMKBg
+
 # 📚 Gyakorló feladatok:
 
 Ofő feltett egy gyakorló feladatot ami hasonló lesz a vizsgán lévő feladathoz:
