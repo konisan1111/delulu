@@ -63,6 +63,20 @@ Na hát most erre van két megoldás legalább, de több is.
 
 A tutorial videóban szépen manuálisan dolgozzuk fel az adatokat, viszont lehet egy nuGet packaget is használni hozzá.
 
+# 🧪 A LINQ metódusok:
+| Metódus | Leírás |
+| :--- | :--- |
+| **Where** | Szűrés: csak azokat az elemeket tartja meg, amikre igaz egy feltétel. |
+| **Select** | Átalakítás: kiválasztja az objektum bizonyos részeit, vagy újat hoz létre belőle. |
+| **OrderBy / OrderByDescending** | Rendezés: növekvő vagy csökkenő sorrendbe teszi az elemeket. |
+| **First / FirstOrDefault** | Visszaadja a legelső elemet (a Default verzió null-t ad, ha üres a lista). |
+| **Any** | Eldönti (true/false), hogy van-e legalább egy elem, ami megfelel a feltételnek. |
+| **All** | Megnézi, hogy a lista összes eleme megfelel-e a feltételnek. |
+| **Count** | Megszámolja az elemeket. |
+| **Sum / Average / Min / Max** | Matematikai műveletek: összeg, átlag, minimum vagy maximum keresése. |
+| **Distinct** | Kiszűri az ismétlődéseket, csak az egyedi értékeket hagyja meg. |
+| **ToList / ToArray** | A lekérdezés eredményét tényleges listává vagy tömbbé alakítja. |
+
 #### Manuális megoldás: 
 Hosszú és fárasztó, ez legyen neked a B terv.
 
