@@ -22,7 +22,7 @@
 
 **Ezt az API-t kell használni a React feladathoz!**
 
-A nuGet package manager-ben használnod kell a:
+A nuGet package manager-ben használnod kell a
 - Sqlite-ot és az
 - Entity Framework-öt.
 
