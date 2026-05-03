@@ -64,6 +64,14 @@ https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy8zZjI1ZTA3Y2ZjMDljOD
 Ugyan úgy kell mint egy C# Console Appot, viszont itt a WPF-et választjuk ki. Semmi más belállítás nem szükséges utána. 
 
 ![Image](https://i.ibb.co/HfNjNpvn/image.png)
+
+A projekthez kapni fogsz egy .sql fájlt amit egy adatbázisra kell átformáznod. Olyan mint egy recept. Nyisd meg, vagy töltsd le a DB Browser-t SQLite-hoz.
+
+https://sqlitebrowser.org/dl/
+
+Majd ezt követően nyisd meg és importáld be a .sql fájlt.
+Utána `File > Save Database as...` és .db fájlként mentsd el a `\Debug\.NET Verzió\` könyvtárba a projekteden belül, így látni fogja a kódod.
+
 # 💻 Megoldások a gyakorló feladathoz:
 Két fájlt kell írni a feladat során, magát a kódot, és az xaml fájlt. Egyik a program, másik a UI.
 
