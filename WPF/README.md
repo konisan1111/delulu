@@ -58,6 +58,7 @@ Ebben a feladatban be kell olvasni egy .sql fájlt a projektbe, annak az adatait
 # 📚 Gyakorló feladat:
 
 Ofő erre is csinált egy feladatot, ennek a megoldás is itt lesz a repo-ban, lentebb.
+
 https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy8zZjI1ZTA3Y2ZjMDljODUyL0VpWUV5eE9NZkN0TXFmR192aVZzckpBQnRIT2hrUXotMmp1TWs0a0x6UF9MOHc_ZT1NWVpLMjQ&id=3F25E07CFC09C852!s769db521c82d49ecbc408767cb7f9934&cid=3F25E07CFC09C852&sb=name&sd=1
 
 # 🤔 Hogyan kezdj el egy projektet?
@@ -65,12 +66,140 @@ Ugyan úgy kell mint egy C# Console Appot, viszont itt a WPF-et választjuk ki. 
 
 ![Image](https://i.ibb.co/HfNjNpvn/image.png)
 
-A projekthez kapni fogsz egy .sql fájlt amit egy adatbázisra kell átformáznod. Olyan mint egy recept. Nyisd meg, vagy töltsd le a DB Browser-t SQLite-hoz.
+# ✅ A megoldás felépítése:
+
+Mivel egy katasztrófa a WPF, még magamnak is vezetni kell hogy milyen lépésekben kell megoldanom.
+
+És igen, minden második mondatban szidni fogom XDDD
+
+Szerencsére van egy `Dapper` nevű package amivel nagyon szépen le lehetett faragni a 82 soros kódból, így már csak 42. Végig megyek az egészen mi micsoda, és miért van.
+
+### 📌 Az összes usage telepítése:
+
+Azért hogy ne legyen egy spagetti az egész, importálni kell a `Dapper`-t.
+`using Dapper;`
+
+SQLitehoz pedig `using System.Data.SQLite;` kell használni.
+
+Mivel nincsenek alapból telepítve ezek a nuGet Packagek, jobb kattintás után feldobja lehetőségnek a VS, hogy telepítsd őket. 
+
+### 📌 SQLite adatbázis létrehozása:
+Nos a feladatban kapni fogunk egy .sql fájlt, de ezt szerencsésebb, sőt a feladatban egy leírás el is mondja, hogy át kell alakítanunk .db-re.
+
+A .sql fájl olyan mint egy recept. 
+Nyisd meg, vagy töltsd le a DB Browser-t SQLite-hoz először is.
 
 https://sqlitebrowser.org/dl/
 
 Majd ezt követően nyisd meg és importáld be a .sql fájlt.
 Utána `File > Save Database as...` és .db fájlként mentsd el a `\Debug\.NET Verzió\` könyvtárba a projekteden belül, így látni fogja a kódod.
+
+### 📌 Rekordok olvasása az adatbázisból:
+Az első legfontosabb dolog, hogy csinálni kell egy listát az olvasott adatoknak, illetve egy connection stringet az adatbázishoz.
+
+```
+List<Versenyzo> versenyzok = new List<Versenyzo>();
+string connectionString = "Data Source=tour.db;Version=3;";
+```
+
+Itt a 'versenyzok' lista a már megadott `Versenyzo.cs` fájlban megadott adatmező alapján készül.
+
+Nagyon fontos, hogy ha még nem tetted be a fájlok közé, akkor a Solution Explorerben nyomj egy jobb clicket, és `Add > Existing Item`. Válaszd ki a .cs fájlt, és már bent is van!
+
+
+Szupi! Most jöhet a lényeg;
+
+```
+void AdatokBetoltese() {
+    using var conn = new SQLiteConnection(connectionString);
+    versenyzok = conn.Query<Versenyzo>(
+        "SELECT v.id, v.nev, v.nemzetiseg, c.csapatNev FROM versenyzo v JOIN csapat c ON v.csapatId = c.id"
+    ).ToList();
+}
+```
+
+Ez a void felel azért hogy az adatok be legyenek töltve. Ha kérdezed mi az a void; ezek kód blokkok amelyek nem returnölnek semmit sem, vagy bármilyen értéket, csak lefuttatja azt a kódot amit beleírsz.
+
+```
+void AdatokBetoltese() {}
+```
+
+A conn változó maga a kapcsolódási string lesz, ez kell ahhoz hogy tudja a program, milyen fájlal kell kommunikálni.
+
+```
+using var conn = new SQLiteConnection(connectionString);
+```
+
+Végül jön az utolsó sorunk. A versenyzok Listát már definiáltuk, viszont most belerakjuk az értékeket is. A `conn.Query<Versenyzo>().toList();`-ben a conn mint mutattam a connection string, viszont a Query a legfontosabb része. Automatikusan, helyettünk mappeli az adatokat és propertyket készít. Nagyon egyszerűen, mindent elvégez helyetted hogy a `<Versenyzo>` adatmező alapján a Listába legyenek rendezve a dolgok.
+
+Viszont az nem mindegy hogy milyen adatok, így a zárójelek közé be kell tenni azt az SQL parancsot amivel az összes szükséges rekordod kitudjuk venni
+`SELECT v.id, v.nev, v.nemzetiseg, c.csapatNev FROM versenyzo v JOIN csapat c ON v.csapatId = c.id`
+
+A v és a c csak rövidítések. Megmondjuk hogy `SELECT` azaz válasszuk ki a `v` tehát versenyzo táblából az id-t, nevet, nemzetiséget, és csapat nevet. A `FROM` mondja meg a sql parancsnak hogy a versenyzo az `v`. Még hozzácsatoljuk a csapatokat, és készen is vagyunk.
+
+```
+versenyzok = conn.Query<Versenyzo>(
+        "SELECT v.id, v.nev, v.nemzetiseg, c.csapatNev FROM versenyzo v JOIN csapat c ON v.csapatId = c.id"
+    ).ToList();
+```
+
+Végül csak listává kell alakítani az egészet a `.toList()`-el.
+
+### 📌 A DataGrid adatai:
+
+A `void compSelectionChanged` sorral kezdődik minden, ami egy eseménykezelő. Ez akkor fut le, amikor a táblázatban (vagyis a DataGridben) a felhasználó rákattint egy sorra, vagyis megváltozik a kijelölés.
+
+A következő rész az `if (compDisplay.SelectedItem is Versenyzo v)`. 
+Itt a program megnézi, hogy amit éppen kijelöltek a felületen, az tényleg egy Versenyzo típusú objektum-e. Ha igen, akkor elnevezi v-nek, így a kapun belül már tudunk hivatkozni az adataira, például a `v.Id`-ra, ami az adatbázisbeli azonosítója.
+
+A `using var conn` sor létrehozza a kapcsolatot az adatbázissal. A using azért jó, mert amint lefut a kódblokk, automatikusan lezárja a kapcsolatot, így nem marad nyitva feleslegesen az adatbázis fájl.
+
+A `var ido = conn.ExecuteScalar(...)` a Dapper része. Az ExecuteScalar akkor kell, ha pontosan egyetlen értéket várunk vissza az adatbázisból, nálunk ez a versenyző időeredménye. 
+
+A string jelzi, hogy szövegként kérjük vissza az adatot.  A SQL parancsban a `WHERE versenyzoId = @Id` résznél a `@Id` egy biztonsági helyörző. A Dapper a parancs végén lévő new `{ v.Id }` részből veszi ki az adatot, és biztonságosan behelyettesíti a `@Id` helyére.
+Ezzel véded a programodat a hibáktól.
+
+Végül a `resultsText.Text` sor frissíti a felületet. A dollár jeles megoldással beillesztjük a szövegbe az eredményt. A két kérdőjel `(??)` pedig egy rövidítés: azt jelenti, hogy ha az adatbázis nem adott vissza semmit (null lett az érték), akkor írja ki helyette azt, hogy Nincs adat. Csak hogy hülye biztos legyen.
+
+```
+void compSelectionChanged(object sender, SelectionChangedEventArgs e) {
+    if (compDisplay.SelectedItem is Versenyzo v){
+        using var conn = new SQLiteConnection(connectionString);
+        var ido = conn.ExecuteScalar<string>("SELECT ido FROM eredmeny WHERE versenyzoId = @Id AND szakasz = 5", new { v.Id });
+        resultsText.Text = $"5. szakasz eredménye: {ido ?? "Nincs adat"}";
+    }
+}
+```
+
+### 📌 A Két gomb kezelése:
+Végül van két gombunk amelyek megmutatjék a versenyzők számát, és a Magyar versenyzők számát is. A C# Console App-os megoldásomat is megnézheted, mert ugyan ilyen Lambda kifejezéseket használtam a megoldáshoz, így magától értetődő hogy mi mit csinál itt.
+
+```
+void compsCount(object sender, RoutedEventArgs e) {
+    teamList.ItemsSource = versenyzok.GroupBy(v => v.CsapatNev)
+                                     .Select(g => $"{g.Key}: {g.Count()}");
+}
+
+void hunCompsCount(object sender, RoutedEventArgs e) {
+    MessageBox.Show($"Magyar versenyzők száma: {versenyzok.Count(v => v.Nemzetiseg == "HUN")}");
+}
+```
+
+### 📌 A void-ok futtatása:
+Hogy minden lefusson, el kell indítani azokat a voidokat amelyek pl. az adatokat olvassák be.
+
+```
+public MainWindow() {
+    InitializeComponent();
+    AdatokBetoltese();
+    compDisplay.ItemsSource = versenyzok;
+    compDisplay.SelectedIndex = 0;
+}
+```
+
+Készen is vagyunk. Ezt követően a WPF Appunk készen is van!
+(ami egy katasztrófa 😭👉👈, de amúgy fr, lowkey nem találtam olyan tutorialt ami nem 5 évvel ezelőtti lett volna, senki sem használja már ezt xddd. Magyar oktatás khm.)
+
 
 # 💻 Megoldások a gyakorló feladathoz:
 Két fájlt kell írni a feladat során, magát a kódot, és az xaml fájlt. Egyik a program, másik a UI.
@@ -80,84 +209,42 @@ Két fájlt kell írni a feladat során, magát a kódot, és az xaml fájlt. Eg
 using System.Windows;
 using System.Windows.Controls;
 using System.Data.SQLite;
+using Dapper;
 
-namespace TourGUI
-{
-    public partial class MainWindow : Window
-    {
+namespace TourGUI {
+    public partial class MainWindow : Window {
         List<Versenyzo> versenyzok = new List<Versenyzo>();
         string connectionString = "Data Source=tour.sql;Version=3;";
 
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
             AdatokBetoltese();
-            dgVersenyzok.ItemsSource = versenyzok;
-            dgVersenyzok.SelectedIndex = 0;
+            compDisplay.ItemsSource = versenyzok;
+            compDisplay.SelectedIndex = 0;
         }
 
-        private void AdatokBetoltese()
-        {
-            using (var conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-                var command = new SQLiteCommand("SELECT v.id, v.nev, v.nemzetiseg, c.csapatNev FROM versenyzo v JOIN csapat c ON v.csapatId = c.id", conn);
+        void AdatokBetoltese() {
+            using var conn = new SQLiteConnection(connectionString);
+            versenyzok = conn.Query<Versenyzo>(
+                "SELECT v.id, v.nev, v.nemzetiseg, c.csapatNev FROM versenyzo v JOIN csapat c ON v.csapatId = c.id"
+            ).ToList();
+        }
 
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        versenyzok.Add(new Versenyzo
-                        {
-                            Id = reader.GetInt32(0),
-                            Nev = reader.GetString(1),
-                            Nemzetiseg = reader.GetString(2),
-                            CsapatNev = reader.GetString(3)
-                        });
-                    }
-                }
+        void compSelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (compDisplay.SelectedItem is Versenyzo v){
+                using var conn = new SQLiteConnection(connectionString);
+                var ido = conn.ExecuteScalar<string>("SELECT ido FROM eredmeny WHERE versenyzoId = @Id AND szakasz = 5", new { v.Id });
+                resultsText.Text = $"5. szakasz eredménye: {ido ?? "Nincs adat"}";
             }
         }
 
-        private void dgVersenyzok_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgVersenyzok.SelectedItem is Versenyzo valasztott)
-            {
-                using (var conn = new SQLiteConnection(connectionString))
-                {
-                    conn.Open();
-                    var command = new SQLiteCommand("SELECT ido FROM eredmeny WHERE versenyzoId = @id AND szakasz = 5", conn);
-                    command.Parameters.AddWithValue("@id", valasztott.Id);
-
-                    var result = command.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        tbSzakaszEredmeny.Text = $"5. szakasz eredménye: {result}";
-                    }
-                    else
-                    {
-                        tbSzakaszEredmeny.Text = "5. szakasz eredménye: Nincs adat";
-                    }
-                }
-            }
+        void compsCount(object sender, RoutedEventArgs e) {
+            teamList.ItemsSource = versenyzok.GroupBy(v => v.CsapatNev)
+                                             .Select(g => $"{g.Key}: {g.Count()}");
         }
 
-        private void btnCsapatok_Click(object sender, RoutedEventArgs e)
-        {
-            lbCsapatok.Items.Clear();
-            var csoportositott = versenyzok.GroupBy(v => v.CsapatNev)
-                                          .Select(g => $"{g.Key}: {g.Count()}");
-            foreach (var sor in csoportositott)
-            {
-                lbCsapatok.Items.Add(sor);
-            }
-        }
-
-        private void btnMagyarok_Click(object sender, RoutedEventArgs e)
-        {
-            int magyarokSzama = versenyzok.Count(v => v.Nemzetiseg == "HUN");
-            MessageBox.Show($"Magyar versenyzők száma: {magyarokSzama}");
+        void hunCompsCount(object sender, RoutedEventArgs e) {
+            MessageBox.Show($"Magyar versenyzők száma: {versenyzok.Count(v => v.Nemzetiseg == "HUN")}");
         }
     }
 }
@@ -172,74 +259,126 @@ namespace TourGUI
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TourGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid Name="dgVersenyzok" Margin="10,10,400,50" SelectionMode="Single" SelectionChanged="dgVersenyzok_SelectionChanged" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="30" />
-                <DataGridTextColumn Header="Név" Binding="{Binding Nev}" Width="*" />
-                <DataGridTextColumn Header="Csapat" Binding="{Binding CsapatNev}" Width="*" />
-                <DataGridTextColumn Header="Nemzetiség" Binding="{Binding Nemzetiseg}" Width="80" />
-            </DataGrid.Columns>
-        </DataGrid>
+        Title="MainWindow"
+        Height="450" 
+        Width="800"
+        >
 
-        <StackPanel Margin="420,10,10,10">
-            <TextBlock Name="tbSzakaszEredmeny" Text="5. szakasz eredménye:" FontSize="16" Margin="0,0,0,20" />
-            <Button Content="Csapatonkénti versenyzők száma" Click="btnCsapatok_Click" Margin="0,0,0,5" />
-            <ListBox Name="lbCsapatok" Height="150" Margin="0,0,0,20" />
-            <Button Content="Magyar versenyzők száma" Click="btnMagyarok_Click" />
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition 
+                Width="*"
+                />
+
+            <ColumnDefinition 
+                Width="300"
+                />
+
+        </Grid.ColumnDefinitions>
+
+        <DataGrid 
+            Grid.Column="0"
+            Name="compDisplay"
+            SelectionMode="Single"
+            SelectionChanged="compSelectionChanged"
+            AutoGenerateColumns="True"
+            />
+
+        <StackPanel
+            Grid.Column="1"
+            >
+            <TextBlock
+                Name="resultsText"
+                Text="5. szakasz eredménye:"
+                FontSize="16"
+                />
+
+            <Button
+                Content="Csapatonkénti versenyzők száma"
+                Click="compsCount"
+                />
+
+            <ListBox
+                Name="teamList"
+                Height="150"
+                />
+
+            <Button
+                Content="Magyar versenyzők száma"
+                Click="hunCompsCount"
+                />
+
         </StackPanel>
     </Grid>
 </Window>
-
 ```
 
 ### ✂️ XAML Template:
 
+Csak másold ki ezt a templatet, és írd be a saját változóidat a helyükre.
+Tök jól tud jönni, rengeteg időt megspórolsz vele.
 ```
-<Grid>
+<Window x:Class="TourGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TourGUI"
+        mc:Ignorable="d"
+        Title="EZT ITT ÍRD ÁT A PROJEKT NEVÉRE!!!! <<<--------------"
+        Height="450" 
+        Width="800"
+        >
 
+    <Grid>
 
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="300" />
-    </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
 
+            <ColumnDefinition 
+                Width="*"
+                />
 
-    <DataGrid
-        Grid.Column="0"
-        Name="dgVersenyzok"
-        AutoGenerateColumns="True"
-        SelectionMode="Single"
-    />
+            <ColumnDefinition 
+                Width="300"
+                />
 
+        </Grid.ColumnDefinitions>
 
-    <StackPanel
-        Grid.Column="1"
+        <DataGrid 
+            Grid.Column="0"
+            Name="?????????"
+            SelectionMode="Single"
+            SelectionChanged="?????????"
+            AutoGenerateColumns="True"
+            />
+
+        <StackPanel
+            Grid.Column="1"
             >
+            <TextBlock
+                Name="?????????"
+                Text="?????????"
+                FontSize="?????????"
+                />
 
+            <Button
+                Content="?????????"
+                Click="?????????"
+                />
 
-        <TextBlock Name="asd" Text="5. szakasz eredménye"/>
+            <ListBox
+                Name="?????????"
+                Height="150"
+                />
 
+            <Button
+                Content="?????????"
+                Click="?????????"
+                />
 
-        <Button
-            Content="Csapatonként versenyzők száma"
-            />
-
-
-        <ListBox Height="100" Margin="0,0,0,5">
-            <ListBoxItem Content="Első random adat"/>
-            <ListBoxItem Content="Második random adat"/>
-            <ListBoxItem Content="Szuper fontos infó"/>
-            <ListBoxItem Content="Ez is egy sor"/>
-        </ListBox>
-
-
-        <Button 
-            Content="Magyar versenyzők száma"
-            />
-
-            
-    </StackPanel>
-</Grid>
+        </StackPanel>
+    </Grid>
+</Window>
 ```
