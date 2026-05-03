@@ -172,7 +172,7 @@ void compSelectionChanged(object sender, SelectionChangedEventArgs e) {
 ```
 
 ### 📌 A Két gomb kezelése:
-Végül van két gombunk amelyek megmutatjék a versenyzők számát, és a Magyar versenyzők számát is. A C# Console App-os megoldásomat is megnézheted, mert ugyan ilyen Lambda kifejezéseket használtam a megoldáshoz, így magától értetődő hogy mi mit csinál itt.
+Végül van két gombunk amelyek megmutatják a versenyzők számát, és a Magyar versenyzők számát is. A C# Console App-os megoldásomat is megnézheted, mert ugyan ilyen Lambda kifejezéseket használtam a megoldáshoz, így magától értetődő hogy mi mit csinál itt.
 
 ```
 void compsCount(object sender, RoutedEventArgs e) {
