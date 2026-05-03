@@ -137,6 +137,10 @@ Viszont az nem mindegy hogy milyen adatok, így a zárójelek közé be kell ten
 
 A v és a c csak rövidítések. Megmondjuk hogy `SELECT` azaz válasszuk ki a `v` tehát versenyzo táblából az id-t, nevet, nemzetiséget, és csapat nevet. A `FROM` mondja meg a sql parancsnak hogy a versenyzo az `v`. Még hozzácsatoljuk a csapatokat, és készen is vagyunk.
 
+Csináltam egy ábrát arra hogy értelmezhetőbb legyen az SQL parancs.
+
+![Ábra](https://i.ibb.co/MmbDP5B/sql-abra.png)
+
 ```
 versenyzok = conn.Query<Versenyzo>(
         "SELECT v.id, v.nev, v.nemzetiseg, c.csapatNev FROM versenyzo v JOIN csapat c ON v.csapatId = c.id"
