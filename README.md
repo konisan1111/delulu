@@ -17,6 +17,7 @@
 </div>
 
 # ---> MÉG DOLGOZOK RAJTAAA!!! <---
+Van már 150 view a repon, nem tudom kik vagytok, de puszi a pocitokra
 
 # Delulu Repository
 Uhhh ne kérdezd a nevét xd
