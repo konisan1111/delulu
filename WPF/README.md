@@ -149,7 +149,9 @@ versenyzok = conn.Query<Versenyzo>(
 
 Végül csak listává kell alakítani az egészet a `.toList()`-el.
 
-### 📌 A DataGrid adatai:
+### 📌 Az 5. szakasz ideje, kijelölés után:
+
+![Ábra](https://i.ibb.co/vCR729fz/selection-Changed.png)
 
 A `void compSelectionChanged` sorral kezdődik minden, ami egy eseménykezelő. Ez akkor fut le, amikor a táblázatban (vagyis a DataGridben) a felhasználó rákattint egy sorra, vagyis megváltozik a kijelölés.
 
