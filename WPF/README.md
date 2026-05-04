@@ -153,7 +153,7 @@ Végül csak listává kell alakítani az egészet a `.toList()`-el.
 
 ![Ábra](https://i.ibb.co/vCR729fz/selection-Changed.png)
 
-A `void compSelectionChanged` sorral kezdődik minden, ami egy eseménykezelő. Ez akkor fut le, amikor a táblázatban (vagyis a DataGridben) a felhasználó rákattint egy sorra, vagyis megváltozik a kijelölés.
+A `void selectionChanged` sorral kezdődik minden, ami egy eseménykezelő. Ez akkor fut le, amikor a táblázatban (vagyis a DataGridben) a felhasználó rákattint egy sorra, vagyis megváltozik a kijelölés.
 
 A következő rész az `if (compDisplay.SelectedItem is Versenyzo v)`. 
 Itt a program megnézi, hogy amit éppen kijelöltek a felületen, az tényleg egy Versenyzo típusú objektum-e. Ha igen, akkor elnevezi v-nek, így a kapun belül már tudunk hivatkozni az adataira, például a `v.Id`-ra, ami az adatbázisbeli azonosítója.
@@ -168,7 +168,7 @@ Ezzel véded a programodat a hibáktól.
 Végül a `resultsText.Text` sor frissíti a felületet. A dollár jeles megoldással beillesztjük a szövegbe az eredményt. A két kérdőjel `(??)` pedig egy rövidítés: azt jelenti, hogy ha az adatbázis nem adott vissza semmit (null lett az érték), akkor írja ki helyette azt, hogy Nincs adat. Csak hogy hülye biztos legyen.
 
 ```
-void compSelectionChanged(object sender, SelectionChangedEventArgs e) {
+void selectionChanged(object sender, SelectionChangedEventArgs e) {
     if (compDisplay.SelectedItem is Versenyzo v){
         using var conn = new SQLiteConnection(connectionString);
         var ido = conn.ExecuteScalar<string>("SELECT ido FROM eredmeny WHERE versenyzoId = @Id AND szakasz = 5", new { v.Id });
@@ -236,7 +236,7 @@ namespace TourGUI {
             ).ToList();
         }
 
-        void compSelectionChanged(object sender, SelectionChangedEventArgs e) {
+        void selectionChanged(object sender, SelectionChangedEventArgs e) {
             if (compDisplay.SelectedItem is Versenyzo v){
                 using var conn = new SQLiteConnection(connectionString);
                 var ido = conn.ExecuteScalar<string>("SELECT ido FROM eredmeny WHERE versenyzoId = @Id AND szakasz = 5", new { v.Id });
@@ -288,7 +288,7 @@ namespace TourGUI {
             Grid.Column="0"
             Name="compDisplay"
             SelectionMode="Single"
-            SelectionChanged="compSelectionChanged"
+            SelectionChanged="selectionChanged"
             AutoGenerateColumns="True"
             />
 
