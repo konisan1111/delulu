@@ -156,7 +156,7 @@ Végül csak listává kell alakítani az egészet a `.toList()`-el.
 A `void selectionChanged` sorral kezdődik minden, ami egy eseménykezelő. Ez akkor fut le, amikor a táblázatban (vagyis a DataGridben) a felhasználó rákattint egy sorra, vagyis megváltozik a kijelölés.
 
 A következő rész az `if (compDisplay.SelectedItem is Versenyzo v)`. 
-Itt a program megnézi, hogy amit éppen kijelöltek a felületen, az tényleg egy Versenyzo típusú objektum-e. Ha igen, akkor elnevezi v-nek, így a kapun belül már tudunk hivatkozni az adataira, például a `v.Id`-ra, ami az adatbázisbeli azonosítója.
+Itt a program megnézi, hogy amit éppen kije löltek a felületen, az tényleg egy Versenyzo típusú objektum-e. Ha igen, akkor elnevezi v-nek, így a kapun belül már tudunk hivatkozni az adataira, például a `v.Id`-ra, ami az adatbázisbeli azonosítója.
 
 A `using var conn` sor létrehozza a kapcsolatot az adatbázissal. A using azért jó, mert amint lefut a kódblokk, automatikusan lezárja a kapcsolatot, így nem marad nyitva feleslegesen az adatbázis fájl.
 
