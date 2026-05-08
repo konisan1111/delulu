@@ -59,6 +59,8 @@ Válaszd ki, hogy `React`-ot használsz, illetve `TypeScript`-et kódoláshoz.
 
 Miután készen vagy, futtasd élőben a projektet az `npm run dev` parancs használatával!
 
+# ⚠️ Hogy ha az egész React gyakorlófeladat piros csíkos (hibás minden is) ⚠️
+Futtasd le ezt a parancsot, talán megjavítja: `npm install --save-dev @types/react @types/react-dom`
 
 # 💻 Frontend React Feladat:
 Reactban egy Frontend feladatot kell megoldanod, egy megkezdett projektben. Az alábbiakat kell elvégezned:
