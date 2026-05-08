@@ -20,6 +20,8 @@
 Kérlek, legalább nézzetek bele néhányba, mert nagyon sok infót elmondanak bennük, és hasznosak lesznek a vizsgán!
 (a CSS Flexboxot, TypeScriptet, ES6-ot mindenképpen nézzétek meg!!!)
 
+Tanár Úr Megoldása: https://www.youtube.com/watch?v=AncAmIlf5SU
+
 CSS Flexbox Course: https://www.youtube.com/watch?v=wsTv9y931o8
 
 JavaScript Crash Course: https://www.youtube.com/watch?v=W6NZfCO5SIk
