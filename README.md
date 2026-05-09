@@ -20,7 +20,7 @@
 
 # https://fos.hu/1tbu 👈
 
-Van már 200 view a repon, nem tudom kik vagytok, de puszi a pocitokra
+Van már 300 view a repon, nem tudom kik vagytok, de puszi a pocitokra
 
 # Delulu Repository
 Uhhh ne kérdezd a nevét xd
