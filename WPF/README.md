@@ -16,6 +16,13 @@
   </p>
 </div>
 
+# 📦 Packagek
+
+- Dapper
+- Microsoft.Data.Sqlite.Core
+- SQLitePCLRaw.bundle_e_sqlite3
+- System.Data.SQLite.EF6
+
 # 📽️ Videó tanulásra:
 Nagyon őszinte leszek veletek, a WPF egy hulladék, és alig van valami uptodate tutorial róla. Miután kisétáltatok a vizsgáról, nyugodtan felejtsétek el ezt az egészet, minél gyorsabban.
 

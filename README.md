@@ -16,11 +16,12 @@
   </p>
 </div>
 
-# ---> MÉG DOLGOZOK RAJTAAA!!! <---
-
-# https://fos.hu/1tbu 👈
+# Sok sikert! ヾ(≧▽≦*)o
 
 Van már 400 view a repon, nem tudom kik vagytok, de puszi a pocitokra
+
+### https://fos.hu/1tbu 👈
+
 
 # Delulu Repository
 Uhhh ne kérdezd a nevét xd
@@ -36,8 +37,6 @@ Mindegyik másik mappában is van, amelyekben részletesebb leírást kapsz az a
 Leírtam, hogy melyik mappában mit találtok meg!
 
 `.\extensions` =>>> Extension-ök amiket használhattok.
-
-`.\practice` =>>> Itt gyakorló feladatokat találsz!
 
 `.\learn` =>>> Videók amelyekből tanulhatsz! (nagyon ajánlott!!!)
 
