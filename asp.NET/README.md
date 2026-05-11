@@ -20,7 +20,112 @@
 
 - Microsoft.EntityFrameworkCore.Display
 - Microsoft.EntityFrameworkCore.Sqlite
-  
+
+# 📌 Gyors templatek, ezt használd inkább:
+Ezek nagyon frissek.
+
+🟪 SQLite Config:
+
+```
+builder.Service.AddDbContext<A DB CONTEXT NEVE>(opt =>
+opt.UseSqlite("Data Source=Data\\A DB FÁJL NEVE.db"))
+
+var app = builder.Build();
+```
+
+🟪 Modellek:
+
+```
+namespace A PROJEKT NEVE
+
+public class A PROJEKT NEVE.DemoModel {
+    public int Id { get; set; } // Sima változó
+    public required string Name { get; set; } // Kötelező
+    public string? Location { get; set; } // Opcionális
+}
+```
+
+🟪 Adatbázis kapcsolat példányosítás:
+
+```
+private readonly A DB CONTEXT NEVE _context;
+
+public A CONTROLLER NEVE(A DB CONTEXT NEVE context)
+{
+    _context = context;
+}
+```
+
+🟪 CRUD Parancsok mint a GET, POST, PUT, DELETE:
+Itt is írjátok át az adatokat!
+
+```
+
+// GET: Bejegyzések listájának lekérése
+
+[HttpGet]
+public async Task<ActionResult<Testimonial>> GetTestimonial()
+{
+    var t = _context.Testimonials.ToListAsync();
+    if (t == null)
+        return NotFound("Nincs ilyen bejegyzés!");
+    else return Ok(t);
+}
+
+// GET: Viszont itt egy Id-val kijelölt specifikus adatot kérünk le
+
+[HttpGet("{id}")]
+public async Task<ActionResult<Testimonial>> GetTestimonial(int id)
+{
+	var t = _context.Testimonials.Find(id);
+	if(t == null)
+		return NotFound("Nincs ilyen bejegyzés!");
+	else return Ok(t);
+}
+
+// POST: Bejegyzés hozzáadása
+
+[HttpPost]
+public async Task<ActionResult> PostTestimonial()
+{			
+	return Ok();
+}
+
+// PUT: Bejegyzés módosítása egy Id alapján (ez is specifikus)
+
+[HttpPut("{id}")]
+public async Task<IActionResult> PutTestimonial(int id, Testimonial testimonial)
+{
+	if (id != testimonial.Id)
+	{
+		return BadRequest();
+	}
+	_context.Entry(testimonial).State = EntityState.Modified;
+	await _context.SaveChangesAsync();
+
+	return NoContent();
+}
+
+// DELETE: Bejegyzés törlése egy Id alapján (ez is specifikus)
+
+[HttpDelete("{id}")]
+public async Task<IActionResult> Delete(int id)
+{
+    var item = await _context.Testimonials.FindAsync(id);
+
+    if (item == null)
+    {
+        return NotFound("A megadott azonosítóval nem található rekord!");
+    }
+
+    _context.Testimonials.Remove(item);
+    await _context.SaveChangesAsync();
+
+    return NoContent();
+}
+
+```
+
 # ✂️ Code Templatek
 
 ### ✂️ DTO Template:
