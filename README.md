@@ -16,9 +16,9 @@
   </p>
 </div>
 
-# Sok sikert! ヾ(≧▽≦*)o
+# Gratula mindenkinek, ügyesek voltatok! ヾ(≧▽≦*)o
 
-Van már 400 view a repon, nem tudom kik vagytok, de puszi a pocitokra
+Van már 500+ view a repon, nem tudom kik vagytok, de puszi a pocitokra
 
 ### https://fos.hu/1tbu 👈
 
